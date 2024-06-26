@@ -75,12 +75,12 @@ watch(() => activeFilters.value, (value) => {
   width: 100%;
   flex-direction: column;
   @include mobile {
-    padding: 50px 0;
+    padding: 20px 0;
   }
 }
 .eyfel-main__title--h3 {
   @include mobile {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     margin-left: 40px
   }
 }

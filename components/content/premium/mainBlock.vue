@@ -5,8 +5,8 @@
       <h1 class="eyfel-main__title--h1 cormorant">BIGHILL</h1>
       <h2 class="eyfel-main__title--h2 --last cormorant">ПАРФЮМЕРИЯ</h2>
       <p class="eyfel-main__description montserrat">
-        Bighill - это линейка ароматов селективных парфюмов с необыкновенно-<br>
-        притягательными нотами. Для создания ароматов этой коллекции мы<br>
+        Bighill - это линейка ароматов селективных парфюмов с необыкновенно-
+        притягательными нотами. Для создания ароматов этой коллекции мы
         используем насыщенные формулы: стойкие, яркие и узнаваемые.
       </p>
     </div>
@@ -82,11 +82,14 @@
 .eyfel-main__description {
   color: white;
   margin-left: 9vw;
+  max-width: 800px;
   @include mobile {
     margin-left: unset;
+    width: 100%;
   }
   @include tablet {
     margin-left: unset;
+    width: 100%;
   }
 }
 .eyfel-main__smoke {
@@ -103,7 +106,7 @@
   @include mobile {
     right: 0;
     top: 250px;
-    max-width: 400px;
+    max-width: 300px;
 
   }
 }
@@ -121,7 +124,7 @@
   @include mobile {
     right: 0;
     top: 300px;
-    max-width: 300px;
+    max-width: 200px;
   }
 }
 .eyfel-main__flower {
@@ -138,8 +141,8 @@
   }
   @include mobile {
     right: 20%;
-    top: 600px;
-    max-width: 300px;
+    top: 500px;
+    max-width: 100px;
   }
 }
 

@@ -6,7 +6,7 @@
       <span class="eyfel-main__description filter-title">фильтры</span>
     </div>
     <div class="eyfel-catalog__content">
-      <Menu v-show="showMenu" ref="menu" class="eyfel-catalog__menu" @close="isShow = false" @change-filters="v => filters = v" />
+      <Menu v-if="showMenu" ref="menu" class="eyfel-catalog__menu" @close="isShow = false" @change-filters="v => filters = v" />
       <div class="eyfel-page__catalog">
         <AppOrderCard
             v-for="item in content"
@@ -41,6 +41,7 @@ const {catalog} = storeToRefs(useProductsStore())
 const filtersValue = ref<ITypesCatalog>(['bighill_parfum_unisex'])
 
 const {showModal, currentItem, showDescription, roznZakaz} = useOrderFlow()
+
 
 const filters = computed({
   get: () => filtersValue.value,
@@ -95,7 +96,10 @@ useSeoMeta({
       position: fixed;
       width: 100%;
       top: 0;
-      height: 100%;
+      height: 100vh;
+      z-index: 100;
+      overflow: scroll;
+      overscroll-behavior: contain;
     }
   }
 }
@@ -138,16 +142,24 @@ useSeoMeta({
     width: 100%;
   }
   ::v-deep .eyfel-order__card__image {
-    height: 300px
+    height: 300px;
+    @include mobile {
+      height: unset;
+    }
   }
   ::v-deep .eyfel-order__card__product-image {
     max-height: 300px;
     height: 100%;
     max-width: unset ;
     width: auto;
+    @include mobile{
+      height: unset;
+      max-height: unset;
+      width: 100%;
+    }
   }
   ::v-deep .eyfel-order__card {
-    padding: 20px;
+    padding: 10px;
     border: 1px solid black;
   }
 }

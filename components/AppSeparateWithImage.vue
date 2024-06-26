@@ -90,7 +90,7 @@ defineProps<{
   }
   @include mobile {
     width: 200px;
-    top: 80%;
+    top: 90%;
   }
 }
 </style>

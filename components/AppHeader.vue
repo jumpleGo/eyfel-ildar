@@ -18,10 +18,8 @@
 <script setup lang="ts">
 const route = useRoute()
 const image = computed(() => {
-  if (route.path === '/') return "/assets/logo.svg"
-  else if (route.path === '/man') return "/assets/logo_white.svg"
+   if (route.path === '/man') return "/assets/logo_white.svg"
   else if (route.path === '/premium') return "/assets/logo_gold.svg"
-  else if (route.path === '/catalog') return "/assets/logo.svg"
   else return "/assets/logo.svg"
 })
 const menus = [

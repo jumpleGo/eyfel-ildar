@@ -43,6 +43,9 @@ onMounted(() => isLoading.value = false)
 <style lang="scss" scoped>
 .order__flower {
   max-width: 400px;
+  @include mobile {
+    top: 7%;
+  }
 }
 .order {
   ::v-deep .eyfel-order__title-h1 {

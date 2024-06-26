@@ -35,6 +35,6 @@ const emit = defineEmits<{
 .eyfel-modal__content {
   position: fixed;
   z-index: 100;
-
 }
 </style>
+
