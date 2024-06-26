@@ -1,0 +1,27 @@
+@import 'style/mixins/index';
+@import 'style/variables';
+@import 'style/animation';
+@import 'style/layouts';
+@import 'style/typography';
+@import 'style/blocks';
+@import 'style/export/export.module';
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.cormorant {
+  font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+}
+
+
+.montserrat {
+ font-family: "Montserrat", sans-serif;
+ font-optical-sizing: auto;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}

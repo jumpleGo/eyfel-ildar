@@ -1,0 +1,9 @@
+/*
+  Файл для экспорта переменных из SCSS в JS
+  Типы описаны в ~/types/style.d.ts
+*/
+:export {
+  desktopMin: $desktop-min;
+  tabletMin: $tablet-min;
+  mobileS: $mobile-s;
+}

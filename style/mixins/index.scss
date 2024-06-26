@@ -1,0 +1,210 @@
+@mixin paddingSize ($padding) {
+  padding: $padding 60px;
+}
+
+$xs : 575px;
+$sm : 768px;
+$md : 991px;
+$lg : 1199px;
+$md-min: ($sm + 1);
+
+
+// Min values
+$desktop-min: 1280px;
+$desktop-medium: 1440px;
+$desktop-max: 1980px;
+$tablet-min: 768px;
+
+// Max values
+$tablet-max: ($desktop-min - 0.1);
+$mobile-max: ($tablet-min - 0.1);
+
+// Container values
+$desktop-max-container: $desktop-min;
+
+// Mobile values
+$mobile-sm: 575px;
+$mobile-s: 420px;
+$mobile-xs: 360px;
+
+@mixin media($min_width, $max_width: 0) {
+  @if $width and $max_width {
+    @media only all and (max-width: $width) and (max-width: $max_width) {
+      @content;
+    }
+  } @else {
+    @media only all and (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin min-max-width($min_width, $max_width) {
+  @media (min-width: $min_width) and (max-width: $max_width) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @include media($xs) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include media($sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include media($md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include media($lg) {
+    @content;
+  }
+}
+
+@mixin desktop-l {
+  @media (min-width: $desktop-medium) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
+}
+
+@mixin desktop-m {
+  @media (min-width: $desktop-min) and (max-width: $desktop-medium) {
+    @content;
+  }
+}
+
+@mixin adaptive {
+  @media (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+@mixin not-mobile {
+  @media (min-width: $tablet-min) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+@mixin tablet_1 {
+  @media (min-width: $tablet-min) and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin tablet-min {
+  @media (min-width: $mobile-max) and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin tablet-max_1 {
+  @media (min-width: $sm) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile-max) {
+    @content;
+  }
+}
+
+@mixin tablet-max {
+  @media (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-width: $mobile-max) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (max-width: $mobile-s) {
+    @content;
+  }
+}
+
+@mixin mobile-xs {
+  @media (max-width: $mobile-xs) {
+    @content;
+  }
+}
+
+@mixin mobile-sm {
+  @media (max-width: $mobile-sm) {
+    @content;
+  }
+}
+
+@mixin notmobile {
+  @media (min-width: $mobile-max) {
+    @content;
+  }
+}
+
+@mixin mobile-lk {
+  @media (max-width: $mobile-sm),
+  (min-width: $md-min) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+@mixin tablet-lk {
+  @media (min-width: $md-min) and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin max-width($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin pwa {
+  @media all and (display-mode: standalone) {
+    @content;
+  }
+}
+
+@mixin ios {
+  // Свойство которое поддерживается только на iOS
+  @supports (-webkit-touch-callout: none) {
+    @content;
+  }
+}

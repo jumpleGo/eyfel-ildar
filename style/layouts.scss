@@ -1,0 +1,23 @@
+.layout {
+  transition: 0.5s all;
+}
+.default-layout {
+  background: $light;
+  transition: 0.2s all;
+  .eyfel-header {
+    border-bottom: 2px solid $dark;
+    .eyfel-header__links-link {
+      color: $dark
+    }
+  }
+}
+.dark-layout {
+  background: $dark;
+  transition: 0.2s all;
+  .eyfel-header {
+    border-bottom: 2px solid white;
+    .eyfel-header__links-link {
+      color: white
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.eyfel-main__title--h2 {
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 0.9em;
+  @include tablet {
+    font-size: 80px;
+  }
+  @include mobile {
+    font-size: 40px;
+  }
+}
+
+.eyfel-main__title--h1 {
+  font-size: 200px;
+  text-align: center;
+  font-style: italic;
+  line-height: 0.7em;
+  @include tablet {
+    font-size: 150px;
+  }
+  @include mobile {
+    font-size: 100px;
+  }
+}
+
+.eyfel-main__description {
+  font-size: 20px;
+  @include tablet {
+    font-size: 16px;
+  }
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.eyfel-main__title--h3 {
+  font-size: 25px;
+}
