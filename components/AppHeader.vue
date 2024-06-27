@@ -69,7 +69,7 @@ const isActive = (item) => {
   font-style: italic;
 }
 .eyfel-header__logo {
-  width: 137px;
+  width: 120px;
   height: auto;
   @include tablet {
     width: 100px

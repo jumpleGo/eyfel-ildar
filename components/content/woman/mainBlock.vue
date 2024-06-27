@@ -5,10 +5,7 @@
       <h1 class="eyfel-main__title--h1 cormorant">eyfel</h1>
       <h2 class="eyfel-main__title--h2 --last cormorant">парфюмерия</h2>
       <p class="eyfel-main__description montserrat">
-        Прекрасные и манящие ароматы Eyfel<br>
-        для женщин создаются из натуральных масел.<br>
-        Наши ароматы обладают дорогим шлейфом<br>
-        и создают особую атмосферу каждого дня.
+        EYFEL - это не просто духи, это настоящее произведение искусства, которое способно подчеркнуть вашу индивидуальность и придать уверенности. Каждый аромат  гарантирует инвидуальность и стойкость.
       </p>
     </div>
     <div class="eyfel-main__line-text">
@@ -107,6 +104,7 @@
 
 .eyfel-main__description {
   color: black;
+  max-width: 700px;
 
   @include mobile {
     margin-left: unset;

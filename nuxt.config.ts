@@ -4,7 +4,41 @@ import {ViteImageOptimizer} from "vite-plugin-image-optimizer";
 
 const vite: NuxtConfig['vite'] = {
   plugins: [
-    ViteImageOptimizer(),
+    ViteImageOptimizer({
+      includePublic: true,
+      svg: {
+        multipass: true,
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                cleanupNumericValues: false,
+                removeViewBox: false, // https://github.com/svg/svgo/issues/1128
+              },
+              cleanupIDs: {
+                minify: false,
+                remove: false,
+              },
+              convertPathData: false,
+            },
+          },
+          'sortAttrs',
+          {
+            name: 'addAttributesToSVGElement',
+            params: {
+              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+            },
+          },
+        ],
+      },
+      png: {
+        // https://sharp.pixelplumbing.com/api-output#png
+        quality: 80,
+        compressionLevel: 3,
+        progressive: true
+      },
+    }),
   ],
   css: {
     preprocessorOptions: {
@@ -19,13 +53,14 @@ const vite: NuxtConfig['vite'] = {
 };
 
 export default defineNuxtConfig({
+  ssr: true,
   vite,
-app: {
-    head: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, height=device-height, initial-scale=1, user-scalable=no, maximum-scale=1.0',
-    }
-},
+  app: {
+      head: {
+        charset: 'utf-8',
+        viewport: 'width=device-width, height=device-height, initial-scale=1, user-scalable=no, maximum-scale=1.0',
+      }
+  },
   devtools: { enabled: true },
   modules: ['nuxt-swiper', '@pinia/nuxt', 'vue-yandex-maps/nuxt', 'nuxt-anchorscroll'],
   mail: {

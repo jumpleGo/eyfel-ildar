@@ -45,7 +45,7 @@ defineProps<{
   }
 }
 .eyfel-separate__image {
-  height: 500px;
+  height: inherit;
   background-size: cover;
   background-position: center;
   width: 50%;
@@ -83,7 +83,7 @@ defineProps<{
   height: auto;
   width: 456px;
   right: 0;
-  top: 50%;
+  top: 70%;
   @include tablet {
     width: 300px;
     top: 70%;
