@@ -18,7 +18,8 @@
     <div class="eyfel-order__content">
       <div class="eyfel-order__form">
         <p class="eyfel-order__form__description">Оптовая заявка</p>
-        <FormContact text="Отправить" />
+        <FormContact text="Отправить" @send="send" />
+        <DoneForm v-if="showDone" class="done" />
       </div>
       <div class="eyfel-order__form_image" :style="`background-image: url('${image}')`" />
     </div>
@@ -26,6 +27,7 @@
 </template>
 <script lang="ts" setup>
 import FormContact from "~/components/content/FormContact.vue";
+import DoneForm from "~/components/content/DoneForm.vue";
 withDefaults(defineProps<{
   theme: 'dark' | 'light' | 'white',
   image: string
@@ -33,9 +35,13 @@ withDefaults(defineProps<{
   theme: 'light',
   image: '/assets/main/eyfel-form.png'
 })
-
+const showDone = ref(false)
 const text = 'Вы можете оформить заказ у нас <br>' +
     '          по оптовым ценам, заполнив форму ниже'
+
+const send = () => {
+  showDone.value = true
+}
 </script>
 <style lang="scss" scoped>
 @import '/style/mixins';
@@ -105,6 +111,7 @@ const text = 'Вы можете оформить заказ у нас <br>' +
   flex-direction: column;
   padding: 20px;
   align-items: end;
+  position: relative;
   row-gap: 40px;
   height: calc(100% - 44px);
   @include mobile {
@@ -130,5 +137,14 @@ const text = 'Вы можете оформить заказ у нас <br>' +
   font-size: 30px;
   font-style: italic;
   font-weight: 600;
+}
+.done {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: unset;
+  border: unset;
 }
 </style>

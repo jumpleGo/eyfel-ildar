@@ -55,8 +55,21 @@ const close = () => {
   align-items: center;
   row-gap: 20px;
   background: white;
+  @include mobile {
+    max-width: unset;
+    padding: 20px;
+    width: -webkit-fill-available;
+  }
 }
 .eyfel-main__title--h3 {
   font-style: italic;
+}
+
+::v-deep .done-form {
+  @include mobile {
+    max-width: unset;
+    padding: 20px;
+    width: -webkit-fill-available;
+  }
 }
 </style>

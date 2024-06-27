@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
 import {useAsyncData} from "#app";
-import {getListByType} from "~/api";
+import {getListByType} from "~/api/getters";
 import type {IProductItem} from "~/api/types";
 import {useLoaderStore} from "~/store/loader";
 import OrderFlow from "~/components/content/OrderFlow.vue";

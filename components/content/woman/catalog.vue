@@ -32,7 +32,7 @@ import ModalProduct from "~/components/content/Modal/ModalProduct.vue";
 import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useLoaderStore} from "~/store/loader";
 import {useAsyncData} from "#app";
-import {getListByType} from "~/api";
+import {getListByType} from "~/api/getters";
 import type {IProductItem} from "~/api/types";
 import {useProductsStore} from "~/store";
 import {useOrderFlow} from "~/composables/useOrderFlow";

@@ -18,7 +18,7 @@ import AppFooter from "~/components/AppFooter.vue";
 import Layout from "~/layouts/layout.vue";
 import {useLoaderStore} from "~/store/loader";
 import AppPreloader from "~/components/AppPreloader.vue";
-import {getAllCount} from "~/api";
+import {getAllCount} from "~/api/getters";
 import {useProductsStore} from "~/store";
 
 const {isLoading} = storeToRefs(useLoaderStore())

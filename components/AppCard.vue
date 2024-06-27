@@ -4,7 +4,7 @@
     <div :style="`background: ${background}`" class="app-card__image-wrapper">
       <img :src="src" class="app-card__image">
     </div>
-    <h3 class="app-card__title">{{ title }}</h3>
+    <h3 class="app-card__title">{{ title }} {{ model }}</h3>
   </div>
 </template>
 <script lang="ts" setup>
@@ -12,7 +12,8 @@ withDefaults(defineProps<{
   src: string,
   title: string,
   background: string,
-  name?: string
+  name?: string,
+  model?: string
 }>(), {
   src: '',
   title: '',

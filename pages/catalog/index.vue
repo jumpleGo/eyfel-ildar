@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import Menu from '@/components/content/catalog/menu.vue'
 import AppOrderCard from "~/components/AppOrderCard.vue";
-import {getByFilterList} from "~/api";
+import {getByFilterList} from "~/api/getters";
 import {useAsyncData} from "#app";
 import {useLoaderStore} from "~/store/loader";
 import {useProductsStore} from "~/store";
@@ -66,15 +66,14 @@ useAsyncData(async () => {
   isLoading.value = false
 })
 
-definePageMeta({
 
-})
-
-useHead({
-
-})
 useSeoMeta({
-
+  title: ' Парфюмерный дом EYFEL — один из лидеров среди производителей элитной парфюмерии.',
+  ogTitle: ' Парфюмерный дом EYFEL — один из лидеров среди производителей элитной парфюмерии.',
+  ogType: 'website',
+  ogLocale: 'ru',
+  description: 'Особенностью духов EYFEL является то, что они создаются исключительно из натуральных ингредиентов. Это позволяет сохранить стойкость аромата на протяжении всего дня и обеспечивает его безопасность для здоровья человека. Кроме того, все духи EYFEL проходят строгий контроль качества перед тем, как попасть на прилавки магазинов.',
+  ogDescription: 'Особенностью духов EYFEL является то, что они создаются исключительно из натуральных ингредиентов. Это позволяет сохранить стойкость аромата на протяжении всего дня и обеспечивает его безопасность для здоровья человека. Кроме того, все духи EYFEL проходят строгий контроль качества перед тем, как попасть на прилавки магазинов.',
 })
 </script>
 <style lang="scss" scoped>

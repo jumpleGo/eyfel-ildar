@@ -68,6 +68,7 @@ const emit = defineEmits<{
   font-weight: 400;
   margin: 10px 0 20px;
   text-align: center;
+  height: 40px;
 }
 .eyfel-order__card__model {
   opacity: 0.8;

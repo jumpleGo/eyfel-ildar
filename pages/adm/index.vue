@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import {addDocument} from "~/api";
+import {addDocument} from "~/api/setters";
 const title = ref('')
 const description = ref('')
 const model = ref('')

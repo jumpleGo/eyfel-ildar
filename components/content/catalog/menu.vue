@@ -74,6 +74,7 @@ watch(() => activeFilters.value, (value) => {
 .eyfel-catalog__menu--wrapper {
   max-width: 350px;
   background: $light;
+  width: 100%;
   @include tablet {
     max-width: 200px;
   }
