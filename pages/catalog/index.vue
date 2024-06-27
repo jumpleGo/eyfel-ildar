@@ -42,7 +42,11 @@ const filtersValue = ref<ITypesCatalog>(['bighill_parfum_unisex'])
 
 const {showModal, currentItem, showDescription, roznZakaz} = useOrderFlow()
 
-
+watch(() => isShow.value, (v) => {
+  if (!isMobile.value) return
+  if (v ) document.body.classList.add('modal-open')
+  else document.body.classList.remove('modal-open')
+})
 const filters = computed({
   get: () => filtersValue.value,
   set: (value) => {
@@ -82,25 +86,6 @@ useSeoMeta({
   position: relative;
   @include mobile {
     padding-top: 50px;
-  }
-
-  &__menu {
-    max-width: 350px;
-    background: $light;
-    @include tablet {
-      max-width: 200px;
-    }
-
-    @include mobile {
-      max-width: unset;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      height: 100vh;
-      z-index: 100;
-      overflow: scroll;
-      overscroll-behavior: contain;
-    }
   }
 }
 .filter {

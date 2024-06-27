@@ -6,7 +6,8 @@
           class="modal"
           v-bind="currentItem"
           @opt="showForm = true"
-          @rozn="emit('rozn')"  />
+          @rozn="emit('rozn')"
+        @close="close"/>
       <div v-if="showForm" class="modal-form modal">
         <h3 class="eyfel-main__title--h3">Оставьте ваши данные </h3>
         <p class="eyfel-main__description">наш менеджер поможет с выбором аромата</p>

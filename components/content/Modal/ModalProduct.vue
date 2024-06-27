@@ -1,5 +1,6 @@
 <template>
   <div class="modal_product">
+    <img v-if="isMobile" src="/assets/close.png" class="close" @click="emit('close')" />
     <div class="modal_product__image_wrapper">
       <img :src="getImageByType(category)" alt="" class="modal_product__image">
     </div>
@@ -31,7 +32,10 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'rozn'): void
   (e: 'opt'): void
+  (e: 'close'): void
 }>()
+
+const {isMobile} = useResponsive()
 </script>
 <style lang="scss" scoped>
 .content {
@@ -53,6 +57,13 @@ const emit = defineEmits<{
     margin: 0 20px;
   }
 }
+
+.close {
+  position: absolute;
+  width: 30px;
+  right: 40px;
+  top: 40px;
+}
 .modal_product__image_wrapper {
   display: flex;
   flex-direction: column;
@@ -68,7 +79,11 @@ const emit = defineEmits<{
   width: 100%;
 }
 .description {
-  margin-top: 30px
+  margin-top: 30px;
+  @include mobile {
+    max-height: 50vh;
+    overflow: scroll;
+  }
 }
 .type {
   margin-top: 10px;

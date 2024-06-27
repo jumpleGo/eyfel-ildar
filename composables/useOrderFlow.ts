@@ -17,6 +17,11 @@ export const useOrderFlow = () => {
         scrollToAnchor('#app-footer')
     }
 
+    watch(() => showModal.value, (v) => {
+        if (v) document.body.classList.add('modal-open')
+        else document.body.classList.remove('modal-open')
+    })
+
 
 
     return {
