@@ -34,8 +34,8 @@ const vite: NuxtConfig['vite'] = {
       },
       png: {
         // https://sharp.pixelplumbing.com/api-output#png
-        quality: 80,
-        compressionLevel: 3,
+        quality: 70,
+        compressionLevel: 5,
         progressive: true
       },
     }),
@@ -62,16 +62,22 @@ export default defineNuxtConfig({
       }
   },
   devtools: { enabled: true },
-  modules: ['nuxt-swiper', '@pinia/nuxt', 'vue-yandex-maps/nuxt', 'nuxt-anchorscroll'],
-  mail: {
-    message: {
-      to: 'eyfel.kzn@gmail.com'
-    },
-    smtp: {
-      host: "smtp.gmail.com",
-      port: 587,
-    },
-  },
+  modules: [
+    'nuxt-swiper',
+    '@pinia/nuxt',
+    'vue-yandex-maps/nuxt',
+    'nuxt-anchorscroll',
+    ['nuxt-mail', {
+      message: {
+        to: 'eyfel.kzn@gmail.com',
+      },
+      smtp: {
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: true,
+      },
+    }],
+  ],
   yandexMaps: {
     apikey: '5f2c0950-a225-4de2-b6d4-8d4a97b21de8',
   },

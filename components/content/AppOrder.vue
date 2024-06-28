@@ -28,7 +28,8 @@
 <script lang="ts" setup>
 import FormContact from "~/components/content/FormContact.vue";
 import DoneForm from "~/components/content/DoneForm.vue";
-import {useMail} from "nuxt-mail/dist/composable";
+
+import {useNuxtApp} from "#imports";
 withDefaults(defineProps<{
   theme: 'dark' | 'light' | 'white',
   image: string
@@ -38,12 +39,14 @@ withDefaults(defineProps<{
 })
 
 const mail = useMail()
-
 mail.send({
   from: 'John Doe',
   subject: 'Incredible',
   text: 'This is an incredible test message',
 })
+
+
+
 const showDone = ref(false)
 const text = 'Вы можете оформить заказ у нас <br>' +
     '          по оптовым ценам, заполнив форму ниже'
