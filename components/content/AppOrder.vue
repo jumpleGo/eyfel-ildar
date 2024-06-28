@@ -28,12 +28,21 @@
 <script lang="ts" setup>
 import FormContact from "~/components/content/FormContact.vue";
 import DoneForm from "~/components/content/DoneForm.vue";
+import {useMail} from "nuxt-mail/dist/composable";
 withDefaults(defineProps<{
   theme: 'dark' | 'light' | 'white',
   image: string
 }>(), {
   theme: 'light',
   image: '/assets/main/eyfel-form.png'
+})
+
+const mail = useMail()
+
+mail.send({
+  from: 'John Doe',
+  subject: 'Incredible',
+  text: 'This is an incredible test message',
 })
 const showDone = ref(false)
 const text = 'Вы можете оформить заказ у нас <br>' +

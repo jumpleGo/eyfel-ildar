@@ -64,8 +64,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['nuxt-swiper', '@pinia/nuxt', 'vue-yandex-maps/nuxt', 'nuxt-anchorscroll'],
   mail: {
+    message: {
+      to: 'eyfel.kzn@gmail.com'
+    },
     smtp: {
-      host: "smtp.example.com",
+      host: "smtp.gmail.com",
       port: 587,
     },
   },
