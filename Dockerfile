@@ -2,13 +2,13 @@
 FROM node:18-alpine
 
 # Устанавливаем рабочую директорию внутри контейнера
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Копируем package.json и package-lock.json в рабочую директорию
 COPY package*.json ./
 
 # Устанавливаем зависимости
-RUN npm install
+RUN npm ci
 
 # Копируем весь проект в рабочую директорию
 COPY . .
