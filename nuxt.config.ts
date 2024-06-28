@@ -72,9 +72,12 @@ export default defineNuxtConfig({
         to: 'eyfel.kzn@gmail.com',
       },
       smtp: {
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: true,
+        host: "smtp.timeweb.ru",
+        port: 25, //465
+        auth: {
+          user: 'admin@eyfelkazan.ru',
+          pass: '6573ibygs5'
+        }
       },
     }],
   ],

@@ -39,11 +39,7 @@ withDefaults(defineProps<{
 })
 
 const mail = useMail()
-mail.send({
-  from: 'John Doe',
-  subject: 'Incredible',
-  text: 'This is an incredible test message',
-})
+
 
 
 
@@ -53,6 +49,11 @@ const text = 'Вы можете оформить заказ у нас <br>' +
 
 const send = () => {
   showDone.value = true
+  mail.send({
+    from: 'John Doe',
+    subject: 'Incredible',
+    text: 'This is an incredible test message',
+  })
 }
 </script>
 <style lang="scss" scoped>
