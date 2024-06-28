@@ -2,8 +2,11 @@ FROM node:18
 
 WORKDIR /eyfel
 
+COPY * ./
 RUN npm ci
 RUN npm run build
+
+EXPOSE 3000
 
 
 CMD ["npm", "run", "start"]
