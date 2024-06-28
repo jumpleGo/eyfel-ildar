@@ -1,12 +1,21 @@
-FROM node:18
 
-WORKDIR /app
+ARG NODE_VERSION=18.14.2
 
-COPY package*.json ./
-RUN npm ci
-RUN npm run build
+FROM node:${NODE_VERSION}-slim as base
 
-EXPOSE 3000
+ENV NODE_ENV=development
 
+WORKDIR /src
 
-CMD ["npm", "run", "start"]
+# Build
+FROM base as build
+
+COPY --link package.json package-lock.json .
+RUN npm install
+
+# Run
+FROM base
+
+COPY --from=build /src/node_modules /src/node_modules
+
+CMD [ "npm", "run", "dev" ]
