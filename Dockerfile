@@ -1,7 +1,7 @@
 FROM node:18
 
-WORKDIR /app
-ADD . /app
+WORKDIR /eyfel
+ADD . /eyfel
 
 RUN npm ci
 RUN npm run build
