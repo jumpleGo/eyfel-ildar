@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /eyfel
 
-COPY * ./
+COPY package*.json ./
 RUN npm ci
 RUN npm run build
 
