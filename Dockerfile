@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Устанавливаем рабочую директорию внутри контейнера
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Копируем package.json и package-lock.json в рабочую директорию
 COPY package*.json ./
