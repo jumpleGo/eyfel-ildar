@@ -47,12 +47,12 @@ const showDone = ref(false)
 const text = 'Вы можете оформить заказ у нас <br>' +
     '          по оптовым ценам, заполнив форму ниже'
 
-const send = () => {
+const send = ({name, phone}) => {
   showDone.value = true
   mail.send({
-    from: 'John Doe',
-    subject: 'Incredible',
-    text: 'This is an incredible test message',
+    from: 'Посетитель сайта',
+    subject: 'Заявка с сайта Eyfel',
+    text: `Имя: '${name}' <br> Телефон: <a href="tel:${phone}">${phone}</a>`,
   })
 }
 </script>

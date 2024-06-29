@@ -1,8 +1,8 @@
 <template>
   <div class="eyfel-form">
-    <input class="eyfel-form--input eyfel-main__description montserrat"  type="text" placeholder="Имя" />
-    <input class="eyfel-form--input --second eyfel-main__description montserrat" type="tel" placeholder="Телефон" />
-    <AppButton :text="text" type="dark" class="eyfel-form__button" @click="emit('send')" />
+    <input v-model="name" class="eyfel-form--input eyfel-main__description montserrat"  type="text" placeholder="Имя" />
+    <input v-model="phone" class="eyfel-form--input --second eyfel-main__description montserrat" type="tel" placeholder="Телефон" />
+    <AppButton :text="text" type="dark" class="eyfel-form__button" @click="send" />
   </div>
 </template>
 <script setup lang="ts">
@@ -10,8 +10,16 @@ defineProps<{
   text: string
 }>()
 
+const name = ref('')
+const phone = ref('')
+
+const send = () => {
+  if (!phone) return
+  emit('send', {name: name.value, phone: phone.value})
+}
+
 const emit = defineEmits<{
-  (e: 'send'): void
+  (e: 'send', {name, phone}: {name: string, phone: string}): void
 }>()
 </script>
 <style lang="scss" scoped>

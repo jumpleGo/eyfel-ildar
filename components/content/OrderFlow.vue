@@ -12,7 +12,7 @@
         <h3 class="eyfel-main__title--h3">Оставьте ваши данные </h3>
         <p class="eyfel-main__description">наш менеджер поможет с выбором аромата</p>
         <FormContact
-            @send="showDone = true; showForm = false"
+            @send="send"
             text="отправить" />
       </div>
       <DoneForm v-if="showDone" class="modal" />
@@ -39,10 +39,22 @@ const emit = defineEmits<{
   (e: 'rozn'): void
 }>()
 
+
+const {mail} = useMail()
 const close = () => {
   emit('close')
   showForm.value = false
   showDone.value = false
+}
+
+const send = ({name, phone}) => {
+  mail.send({
+    from: 'Посетитель сайта',
+    subject: 'Заявка с сайта Eyfel',
+    text: `Имя: '${name}' <br> Телефон: <a href="tel:${phone}">${phone}</a>`,
+  })
+  showDone.value = true;
+  showForm.value = false
 }
 </script>
 <style lang="scss" scoped>
