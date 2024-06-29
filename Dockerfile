@@ -5,11 +5,9 @@ WORKDIR /app
 COPY . .
 
 RUN npm install -g npm@10.8.1
-RUN npm i -g nuxt
-RUN npm i -g vite
 RUN npm ci
-RUN npm run build
+RUN NODE_OPTIONS=--max-old-space-size=4096 nuxt build
 
-
+EXPOSE 3000
 
 CMD ["npm", "run", "start"]
