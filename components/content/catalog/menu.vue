@@ -120,5 +120,6 @@ watch(() => activeFilters.value, (value) => {
 
 .button {
   margin: 40px;
+  margin-bottom: 100px;
 }
 </style>
