@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install -g npm@10.8.1
 RUN npm ci
-RUN NODE_OPTIONS=--max-old-space-size=4096 nuxt build
+RUN NODE_OPTIONS=--max-old-space-size=4096 npm build
 
 EXPOSE 3000
 
