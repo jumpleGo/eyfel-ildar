@@ -1,45 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type {NuxtConfig} from "@nuxt/schema";
-import {ViteImageOptimizer} from "vite-plugin-image-optimizer";
 
 const vite: NuxtConfig['vite'] = {
-  plugins: [
-    ViteImageOptimizer({
-      includePublic: true,
-      svg: {
-        multipass: true,
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                cleanupNumericValues: false,
-                removeViewBox: false, // https://github.com/svg/svgo/issues/1128
-              },
-              cleanupIDs: {
-                minify: false,
-                remove: false,
-              },
-              convertPathData: false,
-            },
-          },
-          'sortAttrs',
-          {
-            name: 'addAttributesToSVGElement',
-            params: {
-              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
-            },
-          },
-        ],
-      },
-      png: {
-        // https://sharp.pixelplumbing.com/api-output#png
-        quality: 70,
-        compressionLevel: 5,
-        progressive: true
-      },
-    }),
-  ],
   css: {
     preprocessorOptions: {
       scss: {
