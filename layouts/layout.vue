@@ -21,7 +21,5 @@ const checkLayout = () => {
   if (route.path === '/catalog') layout.value = 'default-layout'
 }
 
-onMounted(() => {
-  checkLayout()
-})
+onMounted(() => checkLayout())
 </script>
