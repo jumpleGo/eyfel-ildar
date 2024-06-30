@@ -3,8 +3,6 @@
       :modules="[SwiperAutoplay]"
       :slides-per-view="slidePerView"
       :loop="loop"
-      centered-slides
-      centered-slides-bounds
       :autoplay="{
       delay: delay,
       disableOnInteraction: false,
