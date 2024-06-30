@@ -88,7 +88,7 @@ const content = computed(() => currentTab.value === 'diffusor' ? diffusor.value 
     max-width: 220px;
 
     @include mobile {
-      max-width: 100px;
+      max-width: 150px;
     }
   }
 }

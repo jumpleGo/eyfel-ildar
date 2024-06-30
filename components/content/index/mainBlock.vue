@@ -8,7 +8,7 @@
     <p class="eyfel-main__description">
       Парфюмерный дом EYFEL — один из лидеров среди производителей элитной парфюмерии. Бренд был основан в Турции в 2006 году,а в 2009 году быстро завоевал популярность благодаря высокому качеству продукции и оригинальным ароматам. Сегодня духи EYFEL продаются более чем в 20 странах мира, включая Россию.<br><br>
     </p>
-    <img src="/assets/main/parfum-eyfel.svg" class="eyfel-main__perfume" />
+    <img src="/assets/main/eyfel-parfum.png" class="eyfel-main__perfume" />
     <img src="/assets/flower.svg" class="eyfel-main__flower" />
   </div>
 </template>

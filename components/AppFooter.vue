@@ -25,9 +25,9 @@
         <div class="contacts__item eyfel-main__description">
           <p>Cоцсети:</p>
           <div class="contacts__item-links">
-            <a href=""><img src="/assets/tg.svg" alt=""></a>
-            <a href=""><img src="/assets/inst.svg" alt=""></a>
-            <a href=""><img src="/assets/vk.svg" alt=""></a>
+            <a href=""><img src="/assets/tg.png" alt=""></a>
+            <a href=""><img src="/assets/inst.png" alt=""></a>
+            <a href=""><img src="/assets/vk.png" alt=""></a>
           </div>
         </div>
       </div>
@@ -101,7 +101,8 @@
   a {
 
     img {
-      max-width: 60px;
+      max-width: 40px;
+      border-radius: 50%;
       @include mobile {
         max-width: 40px;
       }
