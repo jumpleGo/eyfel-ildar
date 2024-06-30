@@ -52,7 +52,7 @@ const send = ({name, phone}) => {
   mail.send({
     from: 'Посетитель сайта',
     subject: 'Заявка с сайта Eyfel',
-    text: `Имя: '${name}' <br> Телефон: <a href="tel:${phone}">${phone}</a>`,
+    text: `Имя: ${name} | Телефон: ${phone}`,
   })
 }
 </script>
