@@ -7,14 +7,14 @@
         <filter-item v-model="filters['bighill_parfum_man']" title="Мужской парфюм" id="bighill_parfum_man" @change="setFilter"  />
         <filter-item v-model="filters['bighill_parfum_woman']" title="Женский парфюм" id="bighill_parfum_woman" @change="setFilter"  />
         <filter-item v-model="filters['bighill_parfum_unisex']" title="Унисекс парфюм" id="bighill_parfum_unisex" @change="setFilter"  />
-        <filter-item v-model="filters['bighill_diffusor']" title="диффузоры" id="bighill_diffusor" @change="setFilter" />
+        <filter-item v-model="filters['bighill_diffusor']" title="Диффузоры" id="bighill_diffusor" @change="setFilter" />
       </div>
       <div class="menu-category eyfel-main__description pdl">Eyfel</div>
       <div class="eyfel-catalog__content--filters pdl">
         <filter-item v-model="filters['eyfel_parfum_man']" title="Мужской парфюм" id="eyfel_parfum_man" @change="setFilter" />
         <filter-item v-model="filters['eyfel_parfum_woman']" title="Женский парфюм" id="eyfel_parfum_woman" @change="setFilter" />
         <filter-item v-model="filters['eyfel_parfum_unisex']" title="Унисекс парфюм" id="eyfel_parfum_unisex" @change="setFilter"  />
-        <filter-item v-model="filters['eyfel_diffusor']" title="диффузоры" id="eyfel_diffusor" @change="setFilter" />
+        <filter-item v-model="filters['eyfel_diffusor']" title="Диффузоры" id="eyfel_diffusor" @change="setFilter" />
         <filter-item v-model="filters['eyfel_sprei']" title="Спреи" id="eyfel_sprei" @change="setFilter" />
       </div>
       <div class="menu-category eyfel-main__description pdl">Другое</div>

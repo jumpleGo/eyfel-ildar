@@ -71,13 +71,14 @@ const isActive = (item) => {
 }
 .eyfel-header__logo {
   width: 100px;
-  height: auto;
+  height: 45px;
   display: flex;
   svg {
     fill: currentColor;
   }
   @include tablet {
-    width: 80px
+    width: 80px;
+    height: 30px;
   }
   @include mobile {
     display: none;
