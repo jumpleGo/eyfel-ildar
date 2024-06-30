@@ -1,8 +1,11 @@
 <template>
   <div class="preloader">
-    <img src="/assets/logo.svg" />
+    <div class="logo" v-html="logo" />
   </div>
 </template>
+<script setup lang="ts">
+import {logo} from "~/helpers/icons";
+</script>
 <style lang="scss" scoped>
 .preloader {
   height: 100vh;
@@ -13,5 +16,8 @@
   position: fixed;
   z-index: 1000;
   background: $light;
+}
+.logo {
+  width: 120px;
 }
 </style>

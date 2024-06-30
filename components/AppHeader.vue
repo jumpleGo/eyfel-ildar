@@ -11,16 +11,17 @@
         {{item.text}}
       </nuxt-link>
     </div>
-    <img class="eyfel-header__logo" :src="image" />
+    <div :class="['eyfel-header__logo', logoClass]" v-html="logo" />
   </div>
 </template>
 
 <script setup lang="ts">
+import {logo} from '../helpers/icons'
 const route = useRoute()
-const image = computed(() => {
-   if (route.path === '/man') return "/assets/logo_white.svg"
-  else if (route.path === '/premium') return "/assets/logo_gold.svg"
-  else return "/assets/logo.svg"
+const logoClass = computed(() => {
+   if (route.path === '/man') return "logo_white"
+  else if (route.path === '/premium') return "logo_gold"
+  else return "logo"
 })
 const menus = [
   {
@@ -69,14 +70,27 @@ const isActive = (item) => {
   font-style: italic;
 }
 .eyfel-header__logo {
-  width: 120px;
+  width: 100px;
   height: auto;
+  display: flex;
+  svg {
+    fill: currentColor;
+  }
   @include tablet {
-    width: 100px
+    width: 80px
   }
   @include mobile {
     display: none;
   }
+}
+.logo {
+  color: black;
+}
+.logo_white {
+  color: white;
+}
+.logo_gold {
+  color: $gold;
 }
 .eyfel-header__links {
   display: flex;
