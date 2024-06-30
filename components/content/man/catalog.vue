@@ -23,7 +23,7 @@
         @click="showDescription(item)" />
   </div>
 </div>
-  <OrderFlow :show-modal="showModal" :current-item="currentItem" @close="showModal = false" />
+
 </template>
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
@@ -34,8 +34,7 @@ import {useLoaderStore} from "~/store/loader";
 import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useProductsStore} from "~/store";
 import {useOrderFlow} from "~/composables/useOrderFlow";
-
-const {showModal, currentItem, showDescription} = useOrderFlow()
+const {showDescription} = useOrderFlow()
 const {isLoading} = storeToRefs(useLoaderStore())
 const {man} = storeToRefs(useProductsStore())
 

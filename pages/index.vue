@@ -13,7 +13,6 @@
     </div>
   </div>
 
-
 </template>
 <script setup lang="ts">
 import MainBlock from "~/components/content/index/mainBlock.vue";
@@ -24,9 +23,12 @@ import {getByCategory, getByQuery} from "~/api/getters";
 import {useProductsStore} from "~/store";
 import {useLoaderStore} from "~/store/loader";
 import type {IProductItem} from "~/api/types";
+import OrderFlow from "~/components/content/OrderFlow.vue";
+import {useOrderFlow} from "~/composables/useOrderFlow";
 
 const {indexBestsellers, indexMan, indexWoman, indexHome, isLoadedIndex} = storeToRefs(useProductsStore())
 const {isLoading} = storeToRefs(useLoaderStore())
+
 
 useSeoMeta({
   title: ' Парфюмерный дом EYFEL — один из лидеров среди производителей элитной парфюмерии.',

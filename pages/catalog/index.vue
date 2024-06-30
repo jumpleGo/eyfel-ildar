@@ -20,7 +20,6 @@
       </div>
     </div>
   </div>
-  <OrderFlow :show-modal="showModal" :current-item="currentItem" @close="showModal = false" @rozn="roznZakaz" />
 </template>
 <script setup lang="ts">
 import Menu from '@/components/content/catalog/menu.vue'
@@ -30,7 +29,6 @@ import {useAsyncData} from "#app";
 import {useLoaderStore} from "~/store/loader";
 import {useProductsStore} from "~/store";
 import {getImageByType, type ITypesCatalog} from "~/helpers/getImageByType";
-import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useOrderFlow} from "~/composables/useOrderFlow";
 
 const isShow = ref(false)
@@ -40,7 +38,7 @@ const {isLoading} = storeToRefs(useLoaderStore())
 const {catalog} = storeToRefs(useProductsStore())
 const filtersValue = ref<ITypesCatalog>(['bighill_parfum_unisex'])
 
-const {showModal, currentItem, showDescription, roznZakaz} = useOrderFlow()
+const { showDescription} = useOrderFlow()
 
 watch(() => isShow.value, (v) => {
   if (!isMobile.value) return

@@ -24,7 +24,6 @@
           @click="showDescription(item)"/>
     </div>
   </div>
-  <OrderFlow :show-modal="showModal" :current-item="currentItem" @close="showModal = false" />
 </template>
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
@@ -39,7 +38,7 @@ import {useOrderFlow} from "~/composables/useOrderFlow";
 
 const bgSrcBestseller = '/assets/gold-bg.png'
 
-const {showModal, currentItem, showDescription} = useOrderFlow()
+const {showDescription} = useOrderFlow()
 
 const {isLoading} = storeToRefs(useLoaderStore())
 const {woman} = storeToRefs(useProductsStore())

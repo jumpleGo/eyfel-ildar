@@ -14,7 +14,7 @@ const name = ref('')
 const phone = ref('')
 
 const send = () => {
-  if (!phone) return
+  if (!phone.value) return
   emit('send', {name: name.value, phone: phone.value})
 }
 

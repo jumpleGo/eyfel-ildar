@@ -4,12 +4,14 @@
     <div class="eyfel-separate__text">
       <h3 class="eyfel-separate__title eyfel-main__title--h3">{{ title }}</h3>
       <p class="eyfel-separate__description eyfel-main__description" v-html="description" />
-      <AppButton :text="buttonTitle" class="eyfel-separate__button" type="dark-bordered"/>
+      <AppButton :text="buttonTitle" class="eyfel-separate__button" type="dark-bordered" @click="showDescription"/>
     </div>
     <img v-if="!withoutFlower" src="/assets/flower2.svg" class="eyfel-separate__flower" />
   </div>
 </template>
 <script lang="ts" setup>
+import {useOrderFlow} from "~/composables/useOrderFlow";
+
 defineProps<{
   title: string,
   description: string,
@@ -18,6 +20,8 @@ defineProps<{
   theme: 'white' | 'light' | 'gold',
   withoutFlower: boolean
 }>()
+
+const { showDescription} = useOrderFlow()
 </script>
 <style lang="scss" scoped>
 @import '/style/variables';

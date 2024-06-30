@@ -27,6 +27,7 @@
   max-width: 197px;
 }
 .logo {
+  max-width: 100px;
   margin-top: -60px;
   margin-bottom: 16px;
   place-self: end;

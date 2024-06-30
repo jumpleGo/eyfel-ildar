@@ -40,11 +40,6 @@
           @click="showDescription(item)"
           :src="imageSrcByType"/>
     </div>
-    <OrderFlow
-        :show-modal="showModal"
-        :current-item="currentItem"
-        @close="showModal = false"
-        @rozn="roznZakaz" />
   </div>
 </template>
 <script setup lang="ts">
@@ -60,7 +55,7 @@ import OrderFlow from "~/components/content/OrderFlow.vue";
 
 const {isLoading} = storeToRefs(useLoaderStore())
 const {premium} = storeToRefs(useProductsStore())
-const {showModal, currentItem, showDescription, roznZakaz} = useOrderFlow()
+const {showDescription} = useOrderFlow()
 
 const currentTab = ref<'diffusor' | 'aromat'>('aromat')
 const imageSrcByType = computed(() => currentTab.value === 'diffusor' ? '/assets/bighill/diffusorBighill.png' : '/assets/bighill/parfumBighill.png')

@@ -9,6 +9,7 @@
         </keep-alive>
       </layout>
     </div>
+    <OrderFlow :show-modal="isShowModal" @close="isShowModal = false" @rozn="roznZakaz" />
     <AppFooter class="eyfel-footer" />
   </div>
 </template>
@@ -20,9 +21,13 @@ import {useLoaderStore} from "~/store/loader";
 import AppPreloader from "~/components/AppPreloader.vue";
 import {getAllCount} from "~/api/getters";
 import {useProductsStore} from "~/store";
-
+import OrderFlow from "~/components/content/OrderFlow.vue";
+import {useOrderFlow} from "~/composables/useOrderFlow";
+import {useModalStore} from "~/store/modal";
+const {showDescription, roznZakaz} = useOrderFlow()
 const {isLoading} = storeToRefs(useLoaderStore())
 const {count} = storeToRefs(useProductsStore())
+const {isShowModal} = storeToRefs(useModalStore())
 
 useAsyncData(async () => {
   count.value = await getAllCount()

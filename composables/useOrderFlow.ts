@@ -1,23 +1,24 @@
 import type {IProductItem} from "~/api/types";
+import {useModalStore} from "~/store/modal";
 
 export const useOrderFlow = () => {
     const { scrollToAnchor } = useAnchorScroll()
-    const showModal = ref(false)
+    const {isShowModal, selectedItem} = storeToRefs(useModalStore())
 
-    const currentItem = ref<IProductItem | null>(null)
 
-    const showDescription = (item: IProductItem) => {
-        currentItem.value = item
-        showModal.value = true
+    const showDescription = (item?: IProductItem) => {
+        if (item) {
+            selectedItem.value = item
+        }
+        isShowModal.value = true
     }
 
     const roznZakaz = () => {
-        console.log('erewr')
-        showModal.value = false
+        isShowModal.value = false
         scrollToAnchor('#app-footer')
     }
 
-    watch(() => showModal.value, (v) => {
+    watch(() => isShowModal.value, (v) => {
         if (v) document.body.classList.add('modal-open')
         else document.body.classList.remove('modal-open')
     })
@@ -25,8 +26,8 @@ export const useOrderFlow = () => {
 
 
     return {
-        showModal,
-        currentItem,
+        showModal: isShowModal.value,
+        selectedItem: selectedItem.value,
         showDescription,
         roznZakaz
     }
