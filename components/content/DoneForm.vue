@@ -5,7 +5,7 @@
       в ближайшее время мы свяжемся с Вами
     </p>
     <img src="/assets/form-flower.png" class="flower">
-    <img src="/assets/logo.svg" class="logo">
+    <div  class="logo" v-html="logo" />
   </div>
 </template>
 <style lang="scss" scoped>
@@ -31,5 +31,9 @@
   margin-top: -60px;
   margin-bottom: 16px;
   place-self: end;
+  width: 100%;
 }
 </style>
+<script setup lang="ts">
+import {logo} from "~/helpers/icons.js";
+</script>
