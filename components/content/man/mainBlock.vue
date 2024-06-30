@@ -77,13 +77,17 @@
   width: fit-content;
   z-index: 1;
 
+
   @include desktop {
     margin-left: 20%;
   }
 }
 .eyfel-main__title--h2 {
-  margin-left: 1vw;
+  margin-left: 5vw;
   text-transform: uppercase;
+  @include desktop-m {
+    margin-left: 9vw;
+  }
   @include mobile {
     margin-left: unset;
   }
@@ -94,9 +98,16 @@
 }
 .eyfel-main__title--h1 {
   text-transform: uppercase;
+  margin-left: 5vw;
+  @include desktop-m {
+    margin-left: 9vw;
+  }
 }
 .--last {
   margin-left: 5vw;
+  @include desktop-m {
+    margin-left: 9vw;
+  }
   @include mobile {
     margin-left: unset;
   }
@@ -108,6 +119,9 @@
 .eyfel-main__description {
   color: white;
   margin-left: 5vw;
+  @include desktop-m {
+    margin-left: 9vw;
+  }
   @include mobile {
     margin-left: unset;
   }
@@ -117,11 +131,17 @@
 }
 .eyfel-main__perfume {
   position: absolute;
-  max-width: 30vw;
+  max-width: 500px;
+  width: 100%;
   left: 10vw;
   animation: up linear 1.4s;
   z-index: 2;
-  top: 50px;
+  top: 40px;
+  @include desktop-m {
+    max-width: 400px;
+    top: 80px;
+    left: 5vw;
+  }
   @include tablet {
     left: 100px;
     top: 360px;
@@ -139,7 +159,11 @@
   left: 0;
   z-index: 1;
   top: -40px;
-  max-width: 55vw;
+  max-width: 800px;
+  @include desktop-m {
+    max-width: 600px;
+    top: 0;
+  }
   @include tablet {
     left: 0;
     top: 300px;
@@ -155,8 +179,12 @@
   position: absolute;
   left: 0;
   z-index: 3;
-  max-width: 35vw;
-  top: 20vw;
+  max-width: 700px;
+  top: 400px;
+  @include desktop-m {
+    max-width: 400px;
+    top: 350px;
+  }
   @include tablet {
     left: 0;
     top: 600px;
