@@ -43,6 +43,9 @@ withDefaults(defineProps<{
   height: 100%;
   width: auto;
   padding: 50px 0;
+  @include mobile {
+    height: auto;
+  }
 }
 .app-card__title {
   font-weight: 400;

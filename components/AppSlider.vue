@@ -3,6 +3,8 @@
       :modules="[SwiperAutoplay]"
       :slides-per-view="slidePerView"
       :loop="loop"
+      centered-slides
+      centered-slides-bounds
       :autoplay="{
       delay: delay,
       disableOnInteraction: false,
@@ -23,3 +25,12 @@ withDefaults(defineProps<{
   delay: 3000
 })
 </script>
+<style lang="scss" scoped>
+:deep(.swiper-slide) {
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>
