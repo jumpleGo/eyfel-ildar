@@ -37,10 +37,12 @@ const emit = defineEmits<{
   (e: 'change-filters', v: ITypesCatalog[]): void
 }>()
 
+
+
 const filters = reactive<Record<ITypesCatalog, boolean>>({
   bighill_parfum_man: false,
   bighill_parfum_woman: false,
-  bighill_parfum_unisex: true,
+  bighill_parfum_unisex: false,
   bighill_diffusor: false,
   eyfel_parfum_man: false,
   eyfel_parfum_woman: false,
@@ -49,6 +51,21 @@ const filters = reactive<Record<ITypesCatalog, boolean>>({
   eyfel_sprei: false,
   autoparfum: false
 })
+
+const route = useRoute()
+const checkQuery = () => {
+  if (route.query.model) {
+    const queries = (route.query.model as string).split(',')
+    Object.keys(filters).forEach(item => {
+      console.log(item, queries.includes(item))
+      filters[item] = queries.includes(item);
+    })
+  } else {
+    filters['bighill_parfum_unisex'] = true
+  }
+}
+
+onMounted(() => checkQuery())
 
 const setFilter = ({value, id}: {value: boolean, id: ITypesCatalog}) => {
   console.log('change')
@@ -84,7 +101,8 @@ watch(() => activeFilters.value, (value) => {
     position: fixed;
     width: 100%;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     z-index: 100;
   }
 }

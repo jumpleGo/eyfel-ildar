@@ -36,7 +36,8 @@ const {isMobile} = useResponsive()
 const showMenu = computed(() => isMobile.value ? isShow.value : true)
 const {isLoading} = storeToRefs(useLoaderStore())
 const {catalog} = storeToRefs(useProductsStore())
-const filtersValue = ref<ITypesCatalog>(['bighill_parfum_unisex'])
+const filtersValue = ref<ITypesCatalog>([])
+
 
 const { showDescription} = useOrderFlow()
 
