@@ -7,7 +7,7 @@
           :key="item"
           title-color="white"
           fluid
-          src="/assets/bighill/parfum.png"
+          :src="parfumImage"
           bg-src="/assets/gold-bg.png"
           v-bind="item"
           button-type="gold"
@@ -57,7 +57,7 @@ const {isLoading} = storeToRefs(useLoaderStore())
 const {premium, premiumBest: bestsellers} = storeToRefs(useProductsStore())
 const {showDescription} = useOrderFlow()
 const diffImage = '/assets/catalog/catalog-diffusor.png'
-const parfumImage = '/assets/bighill/parfum.png'
+const parfumImage = '/assets/catalog/catalog-bighill.png'
 const currentTab = ref<'diffusor' | 'aromat'>('aromat')
 const imageSrcByType = computed(() => currentTab.value === 'diffusor' ?  diffImage : parfumImage)
 
