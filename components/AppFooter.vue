@@ -25,9 +25,8 @@
         <div class="contacts__item eyfel-main__description">
           <p>Cоцсети:</p>
           <div class="contacts__item-links">
-            <a href=""><img src="/assets/tg.png" alt=""></a>
-            <a href=""><img src="/assets/inst.png" alt=""></a>
-            <a href=""><img src="/assets/vk.png" alt=""></a>
+            <a href="https://t.me/eyfelkzn" target="_blank"><img src="/assets/tg.png" alt=""></a>
+            <a href="https://vk.com/club226215375" target="_blank"><img src="/assets/vk.png" alt=""></a>
           </div>
         </div>
       </div>
