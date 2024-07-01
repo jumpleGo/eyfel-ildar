@@ -55,8 +55,8 @@ const filters = computed({
 })
 
 const menu = ref()
-const content = computed(() => catalog.value.filter(item => filters.value?.includes(item.category)))
-
+const content = computed(() => catalog.value.filter(item => filters.value?.includes(item.category)).sort((a, b) => a.category < b.category ? -1 : 1))
+console.log(content)
 
 useAsyncData(async () => {
   if (catalog.value.length) return

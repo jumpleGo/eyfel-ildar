@@ -27,11 +27,9 @@
 </template>
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
-import ModalProduct from "~/components/content/Modal/ModalProduct.vue";
-import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useLoaderStore} from "~/store/loader";
 import {useAsyncData} from "#app";
-import {getListByType} from "~/api/getters";
+import {getBestsellersByType, getListByType} from "~/api/getters";
 import type {IProductItem} from "~/api/types";
 import {useProductsStore} from "~/store";
 import {useOrderFlow} from "~/composables/useOrderFlow";
@@ -41,20 +39,22 @@ const bgSrcBestseller = '/assets/gold-bg.png'
 const {showDescription} = useOrderFlow()
 
 const {isLoading} = storeToRefs(useLoaderStore())
-const {woman} = storeToRefs(useProductsStore())
+const {woman, womanBest: bestsellers} = storeToRefs(useProductsStore())
+
 useAsyncData(async () => {
   console.log(woman)
   if (woman.value.length) return
 
   isLoading.value = true
-  const res =  await getListByType('woman')
+  const resPromise = getListByType('woman', 20)
+  const resBestsellerPromise = getBestsellersByType('woman')
+
+  const [res, best] = await  Promise.all([resPromise, resBestsellerPromise])
+  bestsellers.value = best
   woman.value = res
   isLoading.value = false
 })
 
-const bestsellers = computed<IProductItem[]>(
-    () => woman.value?.filter(item => item.isBestseller).splice(0,3) || []
-)
 
 const contentMain = computed<IProductItem[]>(
     () => woman.value?.filter(item => !item.isBestseller) || []

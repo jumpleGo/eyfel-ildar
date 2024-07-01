@@ -75,16 +75,17 @@
   position: absolute;
   margin-top: 10px;
   bottom: 0;
-  max-width: 560px;
+  left: 14%;
+  max-width: 230px;
   animation: up linear 1s;
   @include tablet {
     display: none;
   }
   @include mobile {
-    bottom: -30px;
-    left: 10%;
+    bottom: -20px;
+    left: 40%;
     margin-top: unset;
-    max-width: 300px;
+    max-width: 120px;
   }
 }
 .eyfel-main__flower {

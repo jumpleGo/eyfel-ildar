@@ -1,7 +1,7 @@
 <template>
   <div class="app-card">
     <p v-if="name" class="app-card__name">{{ name }}</p>
-    <div :style="`background: ${background}`" class="app-card__image-wrapper">
+    <div :style="`background-image: url('${background}')`" class="app-card__image-wrapper">
       <img :src="src" class="app-card__image">
     </div>
     <h3 class="app-card__title">{{ title }} {{ model }}</h3>
@@ -17,7 +17,7 @@ withDefaults(defineProps<{
 }>(), {
   src: '',
   title: '',
-  background: 'black',
+  background: '/assets/man/silver-bg.png',
   name: ''
 })
 </script>
@@ -30,8 +30,8 @@ withDefaults(defineProps<{
 }
 .app-card__image {
   height: 100%;
-  width: 100%;
-  max-height: 600px;
+  width: auto;
+  max-height: 400px;
 }
 .app-card__name {
   position: absolute;
@@ -42,7 +42,11 @@ withDefaults(defineProps<{
 .app-card__image-wrapper {
   height: 100%;
   width: auto;
-  padding: 50px 0;
+  padding: 80px 0;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @include mobile {
     height: auto;
   }

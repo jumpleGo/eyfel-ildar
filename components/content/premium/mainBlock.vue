@@ -115,7 +115,7 @@
   right: 0;
   z-index: 2;
   top: 43px;
-  max-width: 55vw;
+  max-width: 400px;
   @include tablet {
     right: 0;
     top: 300px;

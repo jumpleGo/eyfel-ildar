@@ -1,7 +1,7 @@
 <template>
 <div class="eyfel__catalog">
-  <h3 v-if="bestsellers.length" class="eyfel-main__title--h3 eyfel-page__catalog__title montserrat">bestsellers</h3>
-  <div v-if="bestsellers.length" class="eyfel-page__bestsellers">
+  <h3 v-if="bestsellers?.length" class="eyfel-main__title--h3 eyfel-page__catalog__title montserrat">bestsellers</h3>
+  <div v-if="bestsellers?.length" class="eyfel-page__bestsellers">
     <AppOrderCard
         v-for="item in bestsellers"
         :key="item"
@@ -28,28 +28,32 @@
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
 import {useAsyncData} from "#app";
-import {getListByType} from "~/api/getters";
+import {getBestsellersByType, getListByType} from "~/api/getters";
 import type {IProductItem} from "~/api/types";
 import {useLoaderStore} from "~/store/loader";
-import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useProductsStore} from "~/store";
 import {useOrderFlow} from "~/composables/useOrderFlow";
 const {showDescription} = useOrderFlow()
 const {isLoading} = storeToRefs(useLoaderStore())
-const {man} = storeToRefs(useProductsStore())
+const {man, manBest: bestsellers} = storeToRefs(useProductsStore())
+
 
 useAsyncData(async () => {
   if (man.value.length) return
 
   isLoading.value = true
-  const res =  await getListByType('man')
+  const resPromise = getListByType('man', 20)
+  const resBestsellerPromise = getBestsellersByType('man')
+
+  const [res, best] = await  Promise.all([resPromise, resBestsellerPromise])
+  bestsellers.value = best
   man.value = res
+
   isLoading.value = false
 })
 const bgSrcBestseller = '/assets/gold-bg.png'
 const bgSrcMan = '/assets/man/silver-bg.png'
 
-const bestsellers = computed<IProductItem[]>(() => man.value?.filter(item => item.isBestseller).splice(0,3) || [])
 const content = computed<IProductItem[]>(() => man.value?.filter(item => !item.isBestseller) || [])
 
 

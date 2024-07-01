@@ -1,7 +1,7 @@
 <template>
   <div class="eyfel__catalog">
-    <h3 class="eyfel-main__title--h3 eyfel-page__catalog__title montserrat">bestsellers</h3>
-    <div class="eyfel-page__bestsellers">
+    <h3 v-if="bestsellers.length" class="eyfel-main__title--h3 eyfel-page__catalog__title montserrat">bestsellers</h3>
+    <div v-if="bestsellers.length" class="eyfel-page__bestsellers">
       <AppOrderCard
           v-for="item in bestsellers"
           :key="item"
@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import AppOrderCard from "@/components/AppOrderCard.vue";
 import {useAsyncData} from "#app";
-import {getListByType} from "~/api/getters";
+import {getBestsellersByType, getListByType} from "~/api/getters";
 import type {IProductItem} from "~/api/types";
 import {useLoaderStore} from "~/store/loader";
 import {useProductsStore} from "~/store";
@@ -54,22 +54,29 @@ import {useOrderFlow} from "~/composables/useOrderFlow";
 import OrderFlow from "~/components/content/OrderFlow.vue";
 
 const {isLoading} = storeToRefs(useLoaderStore())
-const {premium} = storeToRefs(useProductsStore())
+const {premium, premiumBest: bestsellers} = storeToRefs(useProductsStore())
 const {showDescription} = useOrderFlow()
 const diffImage = '/assets/catalog/catalog-diffusor.png'
 const parfumImage = '/assets/bighill/parfum.png'
 const currentTab = ref<'diffusor' | 'aromat'>('aromat')
 const imageSrcByType = computed(() => currentTab.value === 'diffusor' ?  diffImage : parfumImage)
+
+
 useAsyncData(async () => {
   if (premium.value.length) return
 
   isLoading.value = true
-  const res =  await getListByType('premium')
+  const resPromise = getListByType('premium')
+  const resBestsellerPromise = getBestsellersByType('premium')
+
+  const [res, best] = await  Promise.all([resPromise, resBestsellerPromise])
+  console.log(best)
+  bestsellers.value = best
+
   premium.value = res
   isLoading.value = false
 })
 
-const bestsellers = computed<IProductItem[]>(() => premium.value?.filter(item => item.isBestseller).splice(0,3) || [])
 const main = computed<IProductItem[]>(() => premium.value?.filter(item => !item.isBestseller) || [])
 
 const parfum = computed(() => main.value.filter(item => ['bighill_parfum_man','bighill_parfum_woman'].includes(item.category)))

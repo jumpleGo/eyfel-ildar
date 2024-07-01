@@ -3,6 +3,7 @@ import {useNuxtApp} from "#app";
 import {collection, getCountFromServer, getDocs, limit, query, where} from "@firebase/firestore";
 import {startAt} from "@firebase/database";
 import type {ITypesCatalog} from "~/helpers/getImageByType";
+import {orderBy} from "@firebase/firestore/lite";
 
 const getterDataHandler = async (q) => {
     const querySnapshot = await getDocs(q);
@@ -22,11 +23,24 @@ export const getByQuery = async (path: 'products' | 'texts', {fieldPath, opStr, 
 
 }
 
-export const getListByType = async (type: 'man' | 'woman' | 'premium') => {
+export const getListByType = async (type: 'man' | 'woman' | 'premium', limitCount?: number | undefined) => {
     const {$firebaseDB} = useNuxtApp()
     const q = query(
         collection($firebaseDB, 'products'),
         where('type', '==', type),
+        limit(limitCount || 999)
+    )
+
+    return getterDataHandler(q)
+}
+
+export const getBestsellersByType = async (type: 'man' | 'woman' | 'premium') => {
+    const {$firebaseDB} = useNuxtApp()
+    const q = query(
+        collection($firebaseDB, 'products'),
+        where('type', '==', type),
+        where('isBestseller', '==', true),
+        limit(3)
     )
 
     return getterDataHandler(q)
@@ -47,7 +61,8 @@ export const getByCategory  = async (category: ITypesCatalog, limitCount?: numbe
 export const getAllCount = async (): Promise<number> => {
     const {$firebaseDB} = useNuxtApp()
     const q = query(
-        collection($firebaseDB, 'products')
+        collection($firebaseDB, 'products'),
+        orderBy("model")
     )
     const count = await getCountFromServer(q)
     return count.data().count

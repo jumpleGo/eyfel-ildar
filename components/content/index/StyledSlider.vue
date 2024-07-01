@@ -9,7 +9,7 @@
       <div :class="['eyfel-slider__slider', {withElem: (imageAfter || imageBefore) && !isMobile}]">
         <AppSlider v-if="isLoad" :slide-per-view="slidePerViewModified" :delay="delay">
           <SwiperSlide v-for="item in items" :key="item.title">
-            <AppCard v-bind="item" :src="getImageByType(item.category)" />
+            <AppCard v-bind="item" :src="getImageByType(item.category)" :background="background" />
           </SwiperSlide>
         </AppSlider>
       </div>
@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<{
   imageAfter?: boolean,
   imageAfterSrc?: string,
   items?: IProductItem[]
+  background?: string
 }>(), {
   title: '',
   linkTo: '',
@@ -45,6 +46,7 @@ const props = withDefaults(defineProps<{
 
 const isLoad = ref(false)
 onMounted(() => nextTick(() => isLoad.value = true))
+console.log(props.items)
 
 const {isMobile} = useResponsive()
 const slidePerViewModified = computed(() => isMobile.value ? 1 : props.slidePerView)
