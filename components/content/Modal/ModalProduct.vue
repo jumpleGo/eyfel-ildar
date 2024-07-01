@@ -68,6 +68,7 @@ const {isMobile} = useResponsive()
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: black;
   width: 400px;
   @include mobile {
@@ -75,14 +76,20 @@ const {isMobile} = useResponsive()
   }
 }
 .modal_product__image {
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
 }
 .description {
   margin-top: 30px;
+  height: 200px;
+  overflow: scroll;
   @include mobile {
     max-height: 50vh;
     overflow: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 .type {
