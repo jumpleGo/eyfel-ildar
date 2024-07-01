@@ -56,9 +56,10 @@ import OrderFlow from "~/components/content/OrderFlow.vue";
 const {isLoading} = storeToRefs(useLoaderStore())
 const {premium} = storeToRefs(useProductsStore())
 const {showDescription} = useOrderFlow()
-
+const diffImage = '/assets/catalog/catalog-diffusor.png'
+const parfumImage = '/assets/bighill/parfum.png'
 const currentTab = ref<'diffusor' | 'aromat'>('aromat')
-const imageSrcByType = computed(() => currentTab.value === 'diffusor' ? '/assets/bighill/diffusorBighill.png' : '/assets/bighill/parfum.png')
+const imageSrcByType = computed(() => currentTab.value === 'diffusor' ?  diffImage : parfumImage)
 useAsyncData(async () => {
   if (premium.value.length) return
 
