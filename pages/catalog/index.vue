@@ -6,7 +6,7 @@
       <span class="eyfel-main__description filter-title">фильтры</span>
     </div>
     <div class="eyfel-catalog__content">
-      <Menu v-if="showMenu" ref="menu" class="eyfel-catalog__menu" @close="isShow = false" @change-filters="v => filters = v" />
+      <Menu v-show="showMenu" ref="menu" class="eyfel-catalog__menu" @close="isShow = false" @change-filters="v => filters = v" />
       <div class="eyfel-page__catalog">
         <AppOrderCard
             v-for="item in content"
