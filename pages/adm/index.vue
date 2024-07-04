@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
 import {addDocument} from "~/api/setters";
+import {getByCategory} from "~/api/getters";
 const title = ref('')
 const description = ref('')
 const model = ref('')
@@ -25,6 +26,16 @@ const create = () => {
     isBestseller: isBestseller.value,
     model: model.value,
     category: category.value
+  })
+}
+
+const reacreate = async () => {
+  const diffs = await getByCategory('eyfel_diffusor')
+  diffs.forEach((item) => {
+    addDocument({
+      ...item,
+      category: 'eyfel_sprei'
+    })
   })
 }
 </script>
