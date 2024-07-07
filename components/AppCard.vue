@@ -1,7 +1,7 @@
 <template>
   <div class="app-card">
     <p v-if="name" class="app-card__name">{{ name }}</p>
-    <div :style="`background-image: url('${background}')`" class="app-card__image-wrapper">
+    <div :style="background ? `background-image: url('${background}')` : 'background: black'" class="app-card__image-wrapper">
       <img :src="src" class="app-card__image">
     </div>
     <h3 class="app-card__title">{{ title }} {{ model }}</h3>
@@ -17,7 +17,6 @@ withDefaults(defineProps<{
 }>(), {
   src: '',
   title: '',
-  background: '/assets/man/silver-bg.png',
   name: ''
 })
 </script>

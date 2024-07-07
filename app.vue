@@ -10,7 +10,9 @@
       </layout>
     </div>
     <OrderFlow :show-modal="isShowModal" @close="isShowModal = false" @rozn="roznZakaz" />
-    <AppFooter class="eyfel-footer" />
+    <client-only>
+      <AppFooter class="eyfel-footer" />
+    </client-only>
   </div>
 </template>
 <script setup lang="ts">

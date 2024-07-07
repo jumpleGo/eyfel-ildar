@@ -25,5 +25,9 @@ export const getImageByType = (type: ITypesCatalog) => {
            return '/assets/catalog/catalog-eyfel.png'
        case 'bighill_diffusor':
            return '/assets/catalog/catalog-diffusor.png'
+       case 'eyfel_diffusor':
+           return '/assets/catalog/catalog-diffusor-eyfel.png'
+       case 'eyfel_sprei':
+           return '/assets/catalog/catalog-sprei.png'
    }
 }
