@@ -101,7 +101,7 @@
   @include tablet {
     right: 0;
     top: 360px;
-    max-width: 400px;
+    max-width: 300px;
   }
   @include mobile {
     right: 0;
@@ -119,7 +119,7 @@
   @include tablet {
     right: 0;
     top: 300px;
-    max-width: 600px;
+    max-width: 400px;
   }
   @include mobile {
     right: 0;

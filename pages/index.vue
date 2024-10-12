@@ -2,11 +2,11 @@
   <div class="eyfel-index">
     <MainBlock />
     <div class="eyfel-index__sliders">
+      <StyledSlider v-if="diffusor.length" title="BESTSELLERS" :items="diffusorItems" link-name="весь каталог" link-to="catalog" background="/assets/gold-bg.png" />
       <StyledSlider v-if="bestsellerItems.length" title="BESTSELLERS" :items="bestsellerItems" link-name="весь каталог" link-to="catalog" background="/assets/gold-bg.png" />
       <StyledSlider v-if="womanItems.length" image-before :items="womanItems"  image-before-src="/assets/main/forWomen.png" title="Для нее" link-name="весь каталог" linkTo="catalog?model=eyfel_parfum_woman" :slide-per-view="2" background="/assets/woman/rose-bg.png" />
       <StyledSlider v-if="manItems.length" image-after :items="manItems" image-after-src="/assets/main/forMan.png" title="Для него" link-name="весь каталог" linkTo="catalog?model=eyfel_parfum_man" :slide-per-view="2" background="/assets/man/silver-bg.png" />
-      <StyledSlider v-if="homeItems.length" title="Ароматы для дома" :items="homeItems"  link-name="весь каталог" linkTo="catalog?model=eyfel_diffusor,eyfel_sprei" :slide-per-view="3" />
-    </div>
+      </div>
     <div class="order">
       <Order class="order-component" />
       <img src="/assets/flower.svg" class="order__flower" />
@@ -26,7 +26,7 @@ import type {IProductItem} from "~/api/types";
 import OrderFlow from "~/components/content/OrderFlow.vue";
 import {useOrderFlow} from "~/composables/useOrderFlow";
 
-const {indexBestsellers, indexMan, indexWoman, indexHome, isLoadedIndex} = storeToRefs(useProductsStore())
+const {indexBestsellers, indexMan, indexWoman, indexHome, isLoadedIndex, diffusor} = storeToRefs(useProductsStore())
 const {isLoading} = storeToRefs(useLoaderStore())
 
 
@@ -55,14 +55,14 @@ const {data} = useAsyncData(async () => {
     opStr: '==',
     value: 'woman'
   })
-  const home =  getByQuery('products', {
-    fieldPath: 'type',
+  const diffusor =  getByQuery('products', {
+    fieldPath: 'category',
     opStr: '==',
-    value: 'home'
+    value: 'bighill_diffusor'
   })
 
   let response: IProductItem[][]  = []
-  await Promise.allSettled<IProductItem[]>([bestsellers, man, woman, home]).then((items) => {
+  await Promise.allSettled<IProductItem[]>([bestsellers, man, woman, diffusor]).then((items) => {
     response = items.map(item => item.value)
   })
   isLoading.value = false
@@ -73,7 +73,7 @@ const items = computed(() => ({
   bestseller: data.value?.[0] || [],
   man: data.value?.[1] || [],
   woman: data.value?.[2] || [],
-  home: data.value?.[3] || [],
+  diffusor: data.value?.[3] || [],
 }))
 
 const bestsellerItems = computed<IProductItem[]>(() => {
@@ -88,8 +88,8 @@ const womanItems = computed<IProductItem[]>(() => {
   return indexWoman.value.length ? indexWoman.value : items.value?.woman
 })
 
-const homeItems = computed<IProductItem[]>(() => {
-  return indexHome.value.length ? indexHome.value : items.value?.home
+const diffusorItems = computed<IProductItem[]>(() => {
+  return indexHome.value.length ? indexHome.value : items.value?.diffusor
 })
 onMounted(() => {
   if (bestsellerItems.value?.length) {
@@ -101,8 +101,8 @@ onMounted(() => {
   if (womanItems.value?.length) {
     indexWoman.value = womanItems.value
   }
-  if (homeItems.value?.length) {
-    indexHome.value = homeItems.value
+  if (diffusorItems.value?.length) {
+    diffusor.value = diffusorItems.value
   }
 })
 

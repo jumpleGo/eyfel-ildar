@@ -5,33 +5,20 @@
       <div class="app-footer__contacts__items">
         <div class="contacts__item eyfel-main__description">
           <p>Город:</p>
-          <p>Казань:</p>
-        </div>
-        <div class="contacts__item eyfel-main__description">
-          <p>Адрес:</p>
-          <p>Сибгата Хакима, 23, блок 2, офис 21</p>
+          <p>Казань</p>
         </div>
         <div class="contacts__item eyfel-main__description">
           <p>Номера телефонов:</p>
-          <a class="eyfel-main__description" href="tel:+79393705490">+79393705490</a>
-          <a class="eyfel-main__description" href="tel:+79397333379">+79397333379</a>
-          <a class="eyfel-main__description" href="tel:+79393357033">+79393357033</a>
-          <a class="eyfel-main__description" href="tel:+79393948143">+79393948143</a>
+          <a class="eyfel-main__description" href="tel:+79869170071">+79869170071</a>
+          <a class="eyfel-main__description" href="tel:+79662509509">+79662509509</a>
+          <a class="eyfel-main__description" href="tel:+79662604604">+79662604604</a>
         </div>
         <div class="contacts__item eyfel-main__description">
-          <p>Почта:</p>
-          <p><a href="mailto:eyfelkzn@mail.ru">eyfelkzn@mail.ru</a></p>
-        </div>
-        <div class="contacts__item eyfel-main__description">
-          <p>Cоцсети:</p>
-          <div class="contacts__item-links">
-            <a href="https://t.me/eyfelkzn" target="_blank"><img src="/assets/tg.png" alt=""></a>
-            <a href="https://vk.com/club226215375" target="_blank"><img src="/assets/vk.png" alt=""></a>
-          </div>
+          <p>Доставка:</p>
+          <p>CDEK</p>
         </div>
       </div>
     </div>
-    <AppMap />
   </div>
 </template>
 <script lang="ts" setup>
@@ -42,13 +29,13 @@
 .app-footer {
   position: relative;
   width: 100%;
+  background: gray;
   @include mobile {
     border-top: 2px solid black;
   }
 }
 .app-footer__contacts__title {
   width: 100%;
-  text-align: center;
 }
 .app-footer__contacts {
   padding: 40px;
@@ -57,27 +44,16 @@
   display: flex;
   flex-direction: column;
   row-gap: 40px;
-  max-width: 600px;
   width: 100%;
-  position: absolute;
-  top: 50px;
-  left: 40px;
   z-index: 2;
-  @include tablet {
-    max-width: 400px;
-  }
   @include mobile {
-    max-width: unset;
-    left: 0;
-    width: auto;
-    position: unset;
     border: unset;
   }
 }
 .app-footer__contacts__items {
   display: flex;
-  flex-direction: column;
-  row-gap: 20px;
+  width: 100%;
+  column-gap: 100px
 }
 .contacts__item {
   display: flex;

@@ -13,9 +13,21 @@ export const useProductsStore = defineStore('products',() => {
   const manBest = ref<IProductItem[]>([])
   const woman = ref<IProductItem[]>([])
   const womanBest = ref<IProductItem[]>([])
+  const diffusor = ref<IProductItem[]>([])
 
   const catalog = ref<IProductItem[]>([])
   const count = ref<number>(0)
+  const lastShowItem = ref()
+  const availableItems = computed(() => {
+      const itemsList = [indexMan.value, indexBestsellers.value, indexHome.value, premium.value, woman.value, man.value].filter(arr => arr.length).flat()
+      const items = catalog.value.length ? catalog.value : itemsList
+
+      const randomIndex1 = Math.floor(Math.random() * items.length);
+      const randomIndex2 = Math.floor(Math.random() * items.length);
+      const randomIndex3 = Math.floor(Math.random() * items.length);
+
+      return [items[randomIndex1], items[randomIndex2], items[randomIndex3]]
+  })
 
 
     return {
@@ -31,6 +43,9 @@ export const useProductsStore = defineStore('products',() => {
         woman,
         womanBest,
         catalog,
-        count
+        count,
+        lastShowItem,
+        availableItems,
+        diffusor
     }
 })
