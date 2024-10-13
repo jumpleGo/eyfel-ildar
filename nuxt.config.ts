@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     ['nuxt-mail', {
       message: {
         // to: 'altyngasyr.kazan@mail.ru',
-        to: 'rrotatew@gmail.com',
+        to: 'ildarlatipov958@gmail.com',
       },
       smtp: {
         host: "smtp.timeweb.ru",
