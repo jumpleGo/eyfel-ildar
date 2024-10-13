@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     'nuxt-anchorscroll',
     ['nuxt-mail', {
       message: {
-        to: 'eyfel.kzn@gmail.com',
+        to: 'altyngasyr.kazan@mail.ru',
       },
       smtp: {
         host: "smtp.timeweb.ru",
