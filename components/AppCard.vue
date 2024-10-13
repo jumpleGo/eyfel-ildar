@@ -56,9 +56,10 @@ const emit = defineEmits<{
 }
 .sm {
   max-width: 150px;
-  height: 100%;
   .app-card__image-wrapper {
     padding: 30px 15px;
+    height: unset;
+
   }
   .app-card__image {
     max-height: 120px;

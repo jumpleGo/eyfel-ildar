@@ -10,11 +10,11 @@
         <div class="contacts__item eyfel-main__description">
           <p>Номера телефонов:</p>
           <a class="eyfel-main__description" href="tel:+79869170071">+79869170071</a>
-          <a class="eyfel-main__description" href="tel:+79662509509">+79662509509</a>
-          <a class="eyfel-main__description" href="tel:+79662604604">+79662604604</a>
+          <a class="eyfel-main__description" href="tel:89662509509">89662509509</a>
+          <a class="eyfel-main__description" href="tel:89662604604">89662604604</a>
         </div>
         <div class="contacts__item eyfel-main__description">
-          <p>Доставка:</p>
+          <p>Доставка в другие города:</p>
           <p>CDEK</p>
         </div>
       </div>
@@ -48,12 +48,19 @@
   z-index: 2;
   @include mobile {
     border: unset;
+    flex-direction: column;
   }
 }
 .app-footer__contacts__items {
   display: flex;
   width: 100%;
-  column-gap: 100px
+  gap: 100px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 40px;
+
+  }
 }
 .contacts__item {
   display: flex;
@@ -66,6 +73,10 @@
     &:first-child {
       color: #6C6666
     }
+  }
+
+  @include mobile {
+    gap: 10px
   }
 }
 .contacts__item-links {

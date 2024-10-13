@@ -57,7 +57,6 @@ const checkQuery = () => {
   if (route.query.model) {
     const queries = (route.query.model as string).split(',')
     Object.keys(filters).forEach(item => {
-      console.log(item, queries.includes(item))
       filters[item] = queries.includes(item);
     })
   } else {
@@ -68,7 +67,6 @@ const checkQuery = () => {
 onMounted(() => checkQuery())
 
 const setFilter = ({value, id}: {value: boolean, id: ITypesCatalog}) => {
-  console.log('change')
   filters[id] = value
 }
 

@@ -49,14 +49,12 @@ watch(() => isShow.value, (v) => {
 const filters = computed({
   get: () => filtersValue.value,
   set: (value) => {
-    console.log(value)
     filtersValue.value = value
   }
 })
 
 const menu = ref()
 const content = computed(() => catalog.value.filter(item => filters.value?.includes(item.category)).sort((a, b) => a.category < b.category ? -1 : 1))
-console.log(content)
 
 useAsyncData(async () => {
   if (catalog.value.length) return

@@ -42,7 +42,6 @@ const {isLoading} = storeToRefs(useLoaderStore())
 const {woman, womanBest: bestsellers} = storeToRefs(useProductsStore())
 
 useAsyncData(async () => {
-  console.log(woman)
   if (woman.value.length) return
 
   isLoading.value = true

@@ -35,10 +35,10 @@ export default defineNuxtConfig({
       },
       smtp: {
         host: "smtp.timeweb.ru",
-        port: 25, //465
+        port: 465,
         auth: {
-          user: 'admin@eyfelkazan.ru',
-          pass: '6573ibygs5'
+          user: 'ildar@eyfel-altyn.ru',
+          pass: 'LLRMN3dO/9jV5K'
         }
       },
     }],

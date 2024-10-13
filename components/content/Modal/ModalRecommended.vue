@@ -1,5 +1,6 @@
 <template>
   <div class="eyfel-modal_recommended">
+    <img  src="/assets/close.png" class="close" @click="emit('close')" />
     <h3 class="eyfel-main__title--h3">Недавно вы просмотривали товар</h3>
     <div class="eyfel-modal_recommended_last-item">
       <img class="eyfel-modal_recommended_last-item--image" :src="lastShowItem.image" />
@@ -38,6 +39,10 @@ const openModal = (item: IProductItem) => {
   isShowRecommended.value = false
   showDescription(item)
 }
+
+const emit = defineEmits<{
+  (e: 'close'): void
+}>()
 </script>
 <style lang="scss" scoped>
 .eyfel-modal_recommended {
@@ -78,8 +83,14 @@ const openModal = (item: IProductItem) => {
   margin-top: 30px;
    @include mobile {
      flex-wrap: wrap;
-     gap: 30px;
+     gap: 20px;
    }
+}
+.close {
+  position: absolute;
+  width: 30px;
+  right: 40px;
+  top: 40px;
 }
 
 </style>

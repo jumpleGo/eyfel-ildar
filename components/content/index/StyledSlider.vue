@@ -46,7 +46,6 @@ const props = withDefaults(defineProps<{
 
 const isLoad = ref(false)
 onMounted(() => nextTick(() => isLoad.value = true))
-console.log(props.items)
 
 const {isMobile} = useResponsive()
 const slidePerViewModified = computed(() => isMobile.value ? 1 : props.slidePerView)

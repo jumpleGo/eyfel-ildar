@@ -8,7 +8,7 @@
           <NuxtPage  />
         </keep-alive>
         <AppModal v-if="lastShowItem && isShowRecommended" @close="closeRecommended">
-          <ModalRecommended   />
+          <ModalRecommended @close="closeRecommended" />
         </AppModal>
       </layout>
     </div>

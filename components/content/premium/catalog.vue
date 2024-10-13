@@ -70,7 +70,6 @@ useAsyncData(async () => {
   const resBestsellerPromise = getBestsellersByType('premium')
 
   const [res, best] = await  Promise.all([resPromise, resBestsellerPromise])
-  console.log(best)
   bestsellers.value = best
 
   premium.value = res

@@ -2,7 +2,7 @@
   <div class="eyfel-index">
     <MainBlock />
     <div class="eyfel-index__sliders">
-      <StyledSlider v-if="diffusor.length" title="BESTSELLERS" :items="diffusorItems" link-name="весь каталог" link-to="catalog" background="/assets/gold-bg.png" />
+      <StyledSlider v-if="diffusorItems.length" title="Премиальные диффузоры" :items="diffusorItems" link-name="весь каталог" link-to="catalog" background="/assets/gold-bg.png" />
       <StyledSlider v-if="bestsellerItems.length" title="BESTSELLERS" :items="bestsellerItems" link-name="весь каталог" link-to="catalog" background="/assets/gold-bg.png" />
       <StyledSlider v-if="womanItems.length" image-before :items="womanItems"  image-before-src="/assets/main/forWomen.png" title="Для нее" link-name="весь каталог" linkTo="catalog?model=eyfel_parfum_woman" :slide-per-view="2" background="/assets/woman/rose-bg.png" />
       <StyledSlider v-if="manItems.length" image-after :items="manItems" image-after-src="/assets/main/forMan.png" title="Для него" link-name="весь каталог" linkTo="catalog?model=eyfel_parfum_man" :slide-per-view="2" background="/assets/man/silver-bg.png" />
@@ -45,6 +45,7 @@ const {data} = useAsyncData(async () => {
   isLoading.value = true
 
   const bestsellers =  getByCategory( 'bighill_parfum_unisex', 10)
+
   const man =  getByQuery('products', {
     fieldPath: 'type',
     opStr: '==',
@@ -55,11 +56,7 @@ const {data} = useAsyncData(async () => {
     opStr: '==',
     value: 'woman'
   })
-  const diffusor =  getByQuery('products', {
-    fieldPath: 'category',
-    opStr: '==',
-    value: 'bighill_diffusor'
-  })
+  const diffusor =  getByCategory('bighill_diffusor', 10)
 
   let response: IProductItem[][]  = []
   await Promise.allSettled<IProductItem[]>([bestsellers, man, woman, diffusor]).then((items) => {
@@ -89,7 +86,7 @@ const womanItems = computed<IProductItem[]>(() => {
 })
 
 const diffusorItems = computed<IProductItem[]>(() => {
-  return indexHome.value.length ? indexHome.value : items.value?.diffusor
+  return diffusor.value.length ? diffusor.value : items.value?.diffusor
 })
 onMounted(() => {
   if (bestsellerItems.value?.length) {
